@@ -1,0 +1,16 @@
+{
+  "pipeline": "example-ci-cd-pipeline",
+  "stage": "Build",
+  "state": "FAILED",
+  "build_id": "example-codebuild-project:<build-execution-id>",
+  "root_cause": "INVALID_COMMAND",
+  "error_details": "Build terminated with state: FAILED. Phase: BUILD, Code: COMMAND_EXECUTION_ERROR, Message: Error while executing command: <invalid-command>. Reason: exit status 127",
+  "detected_signals": [
+    "invalid command detected",
+    "codebuild command execution error detected"
+  ],
+  "ai_explanation": "The build failed during the BUILD phase because the command '<invalid-command>' was not found. This usually means the command is misspelled, missing from the build environment, or not available in the system PATH.",
+  "ai_recommendation": "Verify the command in the buildspec file. Ensure that the command is correctly spelled, required tools are installed, and custom scripts are included in the repository with execute permissions.",
+  "log_excerpt": "[Container] YYYY/MM/DD HH:MM:SS Entering phase BUILD\n[Container] YYYY/MM/DD HH:MM:SS Running command <invalid-command>\n/codebuild/output/tmp/script.sh: line X: <invalid-command>: command not found\n[Container] YYYY/MM/DD HH:MM:SS Command did not exit successfully <invalid-command> exit status 127\n[Container] YYYY/MM/DD HH:MM:SS Phase complete: BUILD State: FAILED\n[Container] YYYY/MM/DD HH:MM:SS Phase context status code: COMMAND_EXECUTION_ERROR Message: Error while executing command: <invalid-command>. Reason: exit status 127",
+  "timestamp": "YYYY-MM-DDTHH:MM:SSZ"
+}

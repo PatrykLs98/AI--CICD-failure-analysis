@@ -1,0 +1,35 @@
+{
+  "generated_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "total_failures": 2,
+  "by_root_cause": {
+    "INVALID_COMMAND": 1,
+    "TIMEOUT": 1
+  },
+  "top_signals": {
+    "invalid command detected": 1,
+    "codebuild command execution error detected": 2,
+    "timeout detected": 1
+  },
+  "examples": {
+    "INVALID_COMMAND": [
+      "Build terminated with state: FAILED. Phase: BUILD, Code: COMMAND_EXECUTION_ERROR, Message: Error while executing command: <invalid-command>. Reason: exit status 127"
+    ],
+    "TIMEOUT": [
+      "Build timed out during the BUILD phase."
+    ]
+  },
+  "ai_examples": {
+    "INVALID_COMMAND": [
+      {
+        "explanation": "The build failed during the BUILD phase because the command '<invalid-command>' was not found. This usually means the command is misspelled, missing from the build environment, or not available in the system PATH.",
+        "recommendation": "Verify the command in the buildspec file. Check for typos, ensure required tools are installed, and confirm that custom scripts are included in the repository and have execute permissions."
+      }
+    ],
+    "TIMEOUT": [
+      {
+        "explanation": "The build exceeded the configured CodeBuild timeout during the BUILD phase. This may happen when a command runs for too long, tests hang, or the build process waits indefinitely.",
+        "recommendation": "Review the build logs to identify the long-running command. Optimize the build step, reduce test execution time, or adjust the CodeBuild timeout if the longer duration is expected."
+      }
+    ]
+  }
+}
